@@ -2,6 +2,10 @@
 
 Site público da oficina de 60 minutos sobre implementação de aplicativos com IA generativa.
 
+- Site principal: https://vibecode-experience-go-games.vercel.app
+- GitHub Pages: https://andrei7x.github.io/vibecode-experience-go-games/
+- Repositório: https://github.com/andrei7x/vibecode-experience-go-games
+
 ## Experiência
 
 - Catálogo de seis possibilidades, com filtros, detalhes e prompts.
@@ -25,6 +29,8 @@ Abra http://127.0.0.1:4173. Para verificação de sintaxe: `npm run check`.
 ## Publicação
 
 `dist/` contém todo o site. A Vercel usa `vercel.json`. GitHub Pages serve uma cópia exata de `dist/` na branch `gh-pages`. Links de arquivos são relativos para funcionar também no caminho do repositório.
+
+A publicação inicial na Vercel foi feita pela CLI. A conexão automática com GitHub não ficou disponível na conta durante a configuração. Portanto, um push em `main` sozinho não publica na Vercel: execute `vercel deploy --prod` no diretório do projeto, com a conta autenticada, ou conecte o repositório nas configurações do projeto da Vercel. GitHub Pages publica os pushes em `gh-pages`.
 
 Depois de alterar o site, valide, faça commit em `main`, publique na Vercel e atualize a branch de Pages:
 
