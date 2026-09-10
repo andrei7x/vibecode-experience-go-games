@@ -1,0 +1,1 @@
+{"name":"vibecode-experience-go-games","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"node scripts/server.mjs","check":"node --check dist/app.js && node --check dist/config.js"}}

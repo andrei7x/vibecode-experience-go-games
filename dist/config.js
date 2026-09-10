@@ -1,0 +1,1 @@
+window.VIBECODE_CONFIG = {"supabaseUrl":"https://hjjqxxbzdmotaemvrqsi.supabase.co","publishableKey":"sb_publishable_ksHQBmI1GsQ8KjBikJvG6Q_SWplPOJN","repository":"https://github.com/andrei7x/vibecode-experience-go-games"};
