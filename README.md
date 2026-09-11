@@ -63,3 +63,10 @@ Arte de capa criada com ImageGen para a oficina, incorporada em `dist/assets/her
 - Publicação de sites na Vercel: https://vercel.com/docs/deployments/overview
 
 As ideias, os prompts e a organização da oficina são conteúdo didático. Não representam promessa de resultado automático ou programação oficial do evento.
+
+
+## Neon Strike — jogo de nave
+
+Use ←/→ ou A/D para mover, ↑ para atirar, P para pausar e Espaço para ativar o escudo opcional. Os botões na tela permitem jogar no celular. Asteroides e naves são destrutíveis; naves inimigas disparam projéteis. Velocidade, frequência de aparição e cadência inimiga aumentam gradativamente, com limites, e o nível avança a cada 15 segundos. O recorde de sobrevivência é local e separado do jogo anterior.
+
+Verificação da simulação: `node scripts/test-space.mjs`. A interface também foi verificada em navegador desktop e viewport móvel para movimento, disparos, pausa, derrota e reinício.
