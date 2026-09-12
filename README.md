@@ -67,6 +67,11 @@ As ideias, os prompts e a organização da oficina são conteúdo didático. Nã
 
 ## Neon Strike — jogo de nave
 
-Use ←/→ ou A/D para mover, ↑ para atirar, P para pausar e Espaço para ativar o escudo opcional. Os botões na tela permitem jogar no celular. Asteroides e naves são destrutíveis; naves inimigas disparam projéteis. Velocidade, frequência de aparição e cadência inimiga aumentam gradativamente, com limites, e o nível avança a cada 15 segundos. O recorde de sobrevivência é local e separado do jogo anterior.
+Use ←/→ ou A/D para mover, ↑ para atirar, P para pausar e Espaço para ativar o escudo opcional. Os botões na tela permitem jogar no celular. Asteroides e naves são destrutíveis; naves inimigas disparam projéteis. Velocidade, frequência de aparição e cadência inimiga aumentam gradativamente, com limites, e um chefe aparece após 30 segundos de cada fase. O recorde de sobrevivência é local e separado do jogo anterior.
 
 Verificação da simulação: `node scripts/test-space.mjs`. A interface também foi verificada em navegador desktop e viewport móvel para movimento, disparos, pausa, derrota e reinício.
+
+
+### Fases, chefes e áudio
+
+Naves blindadas têm 4 a 8 pontos de resistência; chefes começam com 45 e ganham 10 por fase. Derrotar o chefe libera a próxima fase. Três cenários espaciais se alternam: Órbita Violeta, Planeta Glacial e Fronteira Solar. Velocidade e pressão aumentam com tempo e fase, respeitando limites. Música arcade original e efeitos são sintetizados com Web Audio após iniciar o jogo; o botão Som permite silenciar, e a pausa interrompe o áudio.

@@ -18,6 +18,14 @@ g.targets=[{x:380,y:395,w:38,h:38,enemy:false}];g.update(.016);assert.equal(g.ov
 g.reset();const initial=g.difficulty();g.time=90;const later=g.difficulty();
 assert(later.fall>initial.fall&&later.bullet>initial.bullet&&later.spawn<initial.spawn&&later.fire<initial.fire);
 g.time=10000;assert(g.difficulty().spawn>=.4&&g.difficulty().fire>=.7);
-g.reset();g.spawnIn=999;for(let i=0;i<400;i++)g.update(.04,{left:true});assert.equal(g.x,0);assert.equal(g.level,2);
+g.reset();g.spawnIn=999;for(let i=0;i<400;i++)g.update(.04,{left:true});assert.equal(g.x,0);assert.equal(g.level,1);
 g.reset('easy',true);assert.equal(g.time,0);assert.equal(g.level,1);assert.equal(g.kills,0);assert.equal(g.targets.length+g.hostile.length+g.shots.length,0);assert.equal(g.shield,'ready');
 console.log('PASS: destruction, enemy fire, collision, shield, gradual difficulty, bounds and complete reset.');
+
+g.reset();g.stageTime=30;g.update(.016);assert(g.boss&&g.boss.hp===45);assert.equal(g.targets.length,1);
+g.boss.y=60;g.boss.fireIn=0;g.update(.016);assert.equal(g.hostile.length,5);
+const boss=g.boss;boss.hp=1;g.shots=[{x:boss.x+85,y:boss.y+40,w:8,h:20}];g.update(.016);
+assert.equal(g.stage,2);assert.equal(g.boss,null);assert.equal(g.stageTime,0);assert.equal(g.hostile.length,0);
+g.reset();g.spawnIn=99;g.targets=[{x:380,y:310,w:82,h:64,hp:4,maxHp:4,enemy:true,heavy:true,phase:0,fireIn:99}];
+g.shots=[{x:400,y:365,w:8,h:18}];g.update(.016);assert.equal(g.targets[0].hp,3);assert.equal(g.kills,0);
+console.log('PASS: armored enemies, boss spawn/fire/defeat, next stage and projectile cleanup.');
