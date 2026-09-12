@@ -29,3 +29,15 @@ assert.equal(g.stage,2);assert.equal(g.boss,null);assert.equal(g.stageTime,0);as
 g.reset();g.spawnIn=99;g.targets=[{x:380,y:310,w:82,h:64,hp:4,maxHp:4,enemy:true,heavy:true,phase:0,fireIn:99}];
 g.shots=[{x:400,y:365,w:8,h:18}];g.update(.016);assert.equal(g.targets[0].hp,3);assert.equal(g.kills,0);
 console.log('PASS: armored enemies, boss spawn/fire/defeat, next stage and projectile cleanup.');
+// New interactions exercise the simulation independently from rendering.
+g.reset();g.spawnIn=999;g.destroy({x:350,y:250,w:82,h:64,heavy:true,enemy:true});assert.equal(g.debris.length,6);assert.equal(g.waves.length,1);
+g.debris=[{x:395,y:393,w:16,h:16,vx:0,vy:100,age:0,rotation:0}];g.update(.016);assert(g.over,'debris must be dangerous');
+for(const type of ['turbo','spin','invulnerable']){g.reset();g.spawnIn=999;g.pickups=[{x:385,y:393,w:32,h:32,type}];g.update(.016);assert(g.powers[type]>6);g.powers[type]=.01;g.update(.02);assert.equal(g.powers[type],0);}
+g.reset();g.powers.invulnerable=7;g.hit();assert.equal(g.over,false);g.powers.invulnerable=0;g.hit();assert(g.over);
+g.reset();g.spawnIn=999;g.powers.spin=7;g.hostile=[{x:400,y:390,w:8,h:15,vx:0,vy:100}];g.update(.016,{fire:true});assert.equal(g.hostile.length,0);assert.equal(g.shots.length,3);
+g.reset();g.update(.02,{right:true});const normalX=g.x;g.reset();g.powers.turbo=7;g.update(.02,{right:true});assert(g.x>normalX);
+g.reset();assert.equal(g.beginHack(),false);g.targets=[{x:380,y:290,w:82,h:64,enemy:true,heavy:true,hp:4}];assert(g.beginHack());const frozen=g.time;g.update(.04,{right:true});assert.equal(g.time,frozen);assert.equal(g.x,380);
+for(let i=0;i<3;i++){g.mini.cursor=g.mini.goal;g.mini.cooldown=0;g.hackPulse();}assert.equal(g.mini,null);assert.equal(g.kills,1);assert.equal(g.debris.length,6);assert(g.invincible>=2);
+g.reset();g.targets=[{x:380,y:290,w:82,h:64,enemy:true,heavy:true,hp:4}];g.beginHack();g.mini.remaining=.01;g.update(.02);assert.equal(g.mini,null);assert.equal(g.kills,0);assert.equal(g.beginHack(),false);assert.equal(g.over,false);
+g.reset();assert.equal(g.debris.length+g.waves.length+g.pickups.length,0);assert.equal(g.mini,null);
+console.log('PASS: dangerous debris/waves, three timed powers, spin interception, turbo speed, proximity gating, hack success/timeout/frozen combat/reset.');

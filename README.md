@@ -75,3 +75,10 @@ Verificação da simulação: `node scripts/test-space.mjs`. A interface também
 ### Fases, chefes e áudio
 
 Naves blindadas têm 4 a 8 pontos de resistência; chefes começam com 45 e ganham 10 por fase. Derrotar o chefe libera a próxima fase. Três cenários espaciais se alternam: Órbita Violeta, Planeta Glacial e Fronteira Solar. Velocidade e pressão aumentam com tempo e fase, respeitando limites. Música arcade original e efeitos são sintetizados com Web Audio após iniciar o jogo; o botão Som permite silenciar, e a pausa interrompe o áudio.
+
+
+### Ondas, destroços, poderes e invasão
+
+Explosões produzem uma ondulação visual no cenário. A preferência do sistema por movimento reduzido desativa a distorção, mantendo os anéis de choque. Naves blindadas e chefes liberam seis destroços perigosos. Os power-ups aparecem em rotação: raio (turbo de movimento e cadência), seta circular (spin com disparo em leque e interceptação de tiros/destroços próximos) e escudo (invulnerabilidade). São coletados por contato, duram 7 segundos e podem coexistir.
+
+Pressione E perto de uma nave inimiga comum ou blindada para abrir o minigame 2D de invasão do reator. Acerte três sincronizações na zona verde em 12 segundos; cada erro desconta 1 segundo. O combate e os poderes ficam congelados durante a interação. Sucesso destrói a nave; falha retorna ao combate, sem dano automático. Ambas as saídas dão 2 segundos de proteção. Cada nave admite uma tentativa. O botão na tela também permite sincronizar no celular.
