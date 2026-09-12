@@ -6,3 +6,5 @@
 
 /* Space arcade controls remain usable on touch screens. */
 .game-hud{flex-wrap:wrap;gap:12px}.game-controls{flex-wrap:wrap;gap:12px}.game-controls>div{display:flex;gap:8px}.game-controls button{min-width:44px;min-height:44px;touch-action:none;user-select:none}.game-controls #fire-shot{background:var(--lime);color:#101012;font-weight:700;padding:8px 14px}.game-controls #game-help{font-size:.875rem}.game-hud span{white-space:nowrap}@media(max-width:760px){.game-hud{font-size:.875rem}.game-hud>span:first-child{width:100%}.arena{aspect-ratio:16/9}.game-controls #game-help{display:block;width:100%;order:3}.game-overlay h3{font-size:1.8rem}.game-overlay .eyebrow{display:none}.game-overlay p:not(.eyebrow){margin:8px 0;font-size:.85rem}.game-overlay .btn{padding:8px 18px}}
+
+.game-shell{align-self:start}#power-status,#hack-status{margin-bottom:16px;min-height:2.5em}#hack-game:not(:disabled){border-color:#58f4dc;color:#58f4dc}
